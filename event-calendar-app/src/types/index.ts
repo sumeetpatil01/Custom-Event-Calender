@@ -1,17 +1,16 @@
-export interface Event {
-    id: string;
-    title: string;
-    description?: string;
-    startDate: Date;
-    endDate: Date;
-    recurrence?: Recurrence;
-    color?: string;
-}
+export type RecurrenceType = 'none' | 'daily' | 'weekly' | 'monthly' | 'custom';
 
-export interface Recurrence {
-    type: 'daily' | 'weekly' | 'monthly' | 'custom';
-    interval?: number;
-    daysOfWeek?: number[]; // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
-    dayOfMonth?: number; // For monthly recurrence
-    customPattern?: string; // For custom recurrence patterns
+export interface Event {
+  id: string;
+  title: string;
+  description?: string;
+  date: string; // ISO string
+  time?: string; // "HH:mm"
+  color?: string;
+  recurrence?: {
+    type: RecurrenceType;
+    interval?: number; // for custom
+    daysOfWeek?: number[]; // for weekly
+    dayOfMonth?: number; // for monthly
+  };
 }
