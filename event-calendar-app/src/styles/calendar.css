@@ -1,0 +1,70 @@
+/ event-calendar-app/event-calendar-app/src/styles/calendar.css
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.day {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    position: relative;
+    height: 100px;
+    transition: background-color 0.3s;
+}
+
+.day:hover {
+    background-color: #f0f0f0;
+}
+
+.current-day {
+    background-color: #ffeb3b;
+}
+
+.event {
+    background-color: #2196f3;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+    margin: 2px 0;
+    cursor: pointer;
+}
+
+.event:hover {
+    opacity: 0.8;
+}
+
+.event-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.event-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.filter-bar {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+@media (max-width: 600px) {
+    .calendar {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .day {
+        height: 80px;
+    }
+}
